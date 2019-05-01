@@ -2,24 +2,46 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const middleware = require('./utils/middleware')
 const morgan = require('morgan')
-const eventsRouter = require('./controllers/events')
+const passport = require('passport')
+
+
+const eventsRouter = require('./routes/events')
+const userRouter = require('./routes/users')
+
+if(process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+mongoose
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+  .then(() => {
+    console.log('connected to database ', process.env.MONGODB_URI)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
 app.use(cors())
 app.use(bodyParser.json())
 eventsRouter.use(bodyParser.json())
 app.use(morgan('dev'))
-app.use(express.static('build'))
+
+app.use(passport.initialize())
 
 app.use('/api/events', eventsRouter)
+app.use('/', userRouter)
 
-const error = (request, response) => response.status(404).send({ error: 'unknown endpoint' })
 
-app.use(error)
+app.use(express.static('build'))
+
+
+
+app.use(middleware.error)
 
 const PORT = process.env.PORT || 3001
 
-
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 })

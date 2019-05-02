@@ -1,3 +1,5 @@
 node_modules
 session
 get_all.rest
+.env
+env

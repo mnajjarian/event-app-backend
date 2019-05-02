@@ -34,18 +34,5 @@ userRouter.post('/login', passport.authenticate('local'), (req, res) => {
   res.json({ success: true, token: token, status: 'You are Successfully login!' })
 })
 
-userRouter.get('/logout', (req, res, next) => {
-  if(req.session) {
-    req.session.destroy()
-    res.clearCookie('session-id')
-    res.redirect('/')
-  }
-  else {
-    let err = new Error('You are not logged in')
-    res.status = 403
-    next(err)
-  }
-})
-
 module.exports = userRouter
 

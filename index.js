@@ -10,6 +10,7 @@ const passport = require('passport')
 
 const eventsRouter = require('./routes/events')
 const userRouter = require('./routes/users')
+const uploadRouter = require('./routes/uplouds')
 
 if(process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -32,6 +33,7 @@ app.use(passport.initialize())
 
 app.use('/api/events', eventsRouter)
 app.use('/', userRouter)
+app.use('/imageUpload', uploadRouter)
 
 
 app.use(express.static('build'))

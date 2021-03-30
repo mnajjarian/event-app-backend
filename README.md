@@ -15,10 +15,13 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
 
 - #### Node installation on Ubuntu
 
-  You can install nodejs and npm easily with apt install, just run the following commands.
+  You can install nodejs and with apt-get install, just run the following commands.
 
-      $ sudo apt install nodejs
-      $ sudo apt install npm
+      $ sudo apt-get install nodejs
+      
+  After installing node, this project will need yarn too, so just run the following command.
+  
+      $ sudo apt-get install -g yarn
 
 - #### Other Operating Systems
   You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
@@ -26,18 +29,13 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
 If the installation was successful, you should be able to run the following command.
 
     $ node --version
-    v8.11.3
+    v14.11.3
 
-    $ npm --version
+    $ yarn --version
     6.1.0
 
 ### MongoDB
 The project uses MongoDB as a database.
-
-### Yarn installation
-  After installing node, this project will need yarn too, so just run the following command.
-
-      $ npm install -g yarn
 
 ## Install
 
@@ -57,6 +55,7 @@ and put the right values for these variables
 
 - `MONGODB_URI` [MongoDB URI](https://docs.mongodb.com/manual/reference/connection-string/)
 - `SECRET_KEY` can be any string
+- `PORT` to choose which port for the application. Default: 3001
 
 ## Running the server
 

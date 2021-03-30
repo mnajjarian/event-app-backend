@@ -53,10 +53,10 @@ To run the app you need create .env file in the root of project
 touch .env
 ```
 
-and the right values for this variables
+and put the right values for these variables
 
-- MONGODB_URI MongoDB URI
-- SECRET_KEY can be any string
+- `MONGODB_URI` [MongoDB URI](https://docs.mongodb.com/manual/reference/connection-string/)
+- `SECRET_KEY` can be any string
 
 ## Running the server
 

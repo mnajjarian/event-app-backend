@@ -60,3 +60,7 @@ and put the right values for these variables
 ## Running the server
 
     $ yarn start
+    
+## APIs
+
+- `GET` /api/events 

@@ -63,4 +63,6 @@ and put the right values for these variables
     
 ## APIs
 
+This project uses [Linked Events API](https://dev.hel.fi/apis/linkedevents) to fetch events around the City of Helsinki
+
 - `GET` /api/events 

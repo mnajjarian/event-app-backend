@@ -31,13 +31,13 @@ If the installation was successful, you should be able to run the following comm
     $ npm --version
     6.1.0
 
+### MongoDB
+The project uses MongoDB as a database.
+
 ### Yarn installation
   After installing node, this project will need yarn too, so just run the following command.
 
       $ npm install -g yarn
-
-#### MongoDB
-The project uses MongoDB as a database.
 
 ## Install
 
